@@ -25,7 +25,7 @@ router.post("/signup", wrapAsync(async(req,res)=>{
     })
     } catch(e){
         req.flash("error",e.message);
-        res.redirect("signup");
+        res.redirect("/signup");
     }
 }))
 
@@ -36,15 +36,15 @@ router.get("/login",(req,res)=>{
 })
 
 router.post("/login",saveRedirectUrl, passport.authenticate('local',{failureRedirect: '/login', failureFlash: true}) ,async(req,res)=>{
-    req.flash("success","Welcome to WanderLust, you are logged in");
     let redirectUrl = res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
+    req.flash("success","Welcome to igloo, you are logged in");
 })
 
-router.get("/logout",(req,res)=>{
+router.get("/logout",(req,res,next)=>{
     req.logout((err)=>{
         if(err){
-            next(err);
+            return next(err);
         }
         req.flash("success","You are now logged out!");
         res.redirect("/listings");

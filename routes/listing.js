@@ -3,8 +3,8 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing=require("../models/listing.js");
 const {isLoggedIn,isOwner,validateListing} = require("../middleware.js");
-
-
+  
+/* const listings = require("../controllers/listings.js"); */
 
 //ALL CRUD OPERATIONS BEGIN HERE
 
@@ -30,19 +30,18 @@ router.get("/:id" , wrapAsync(async(req,res)=>{
         req.flash("error","Listing you requested for does not exist");
         return res.redirect("/listings");
     }
-    console.log(listing);
     res.render("listings/show.ejs",{listing});
 })
 )
 
 //4.CREATE ROUTE - creating a new listing
 //CRUD equivalent - create operation
-router.post("/",validateListing,wrapAsync(async(req,res,next)=>{
+router.post("/",isLoggedIn,validateListing,wrapAsync(async(req,res,next)=>{
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     await newListing.save();
     req.flash("success","New Listing Created!");
-    res.redirect("/listings");
+    res.redirect ("/listings");
     })
 )
 
