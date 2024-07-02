@@ -6,6 +6,11 @@ const {isLoggedIn,isOwner,validateListing} = require("../middleware.js");
   
 const listingController = require("../controllers/listings.js");
 
+const multer = require("multer");
+const {storage} = require("../cloudConfig.js");
+const upload = multer({storage});
+
+
 //ALL CRUD OPERATIONS BEGIN HERE
 //1.printing all of our data
 //4.CREATE ROUTE - creating a new listing
@@ -13,7 +18,7 @@ const listingController = require("../controllers/listings.js");
 router
 .route("/")
 .get( wrapAsync(listingController.index))
-.post(isLoggedIn,validateListing,wrapAsync(listingController.createListing));
+.post(isLoggedIn,/* validateListing, */upload.single('listing[image]'),wrapAsync(listingController.createListing));
 
 //3.NEW ROUTE - creating a new listing
 //CRUD equivalent - create operation
@@ -27,7 +32,7 @@ router.get("/new",isLoggedIn, listingController.renderNewForm);
 //CRUD equivalent - delete operation
 router.route("/:id")
 .get(wrapAsync(listingController.showListing))
-.put(isLoggedIn,isOwner,validateListing,wrapAsync(listingController.updateListing))
+.put(isLoggedIn,isOwner/* ,validateListing */,upload.single('listing[image]'),wrapAsync(listingController.updateListing))
 .delete(isLoggedIn,isOwner,wrapAsync(listingController.destroyListing));
 
 

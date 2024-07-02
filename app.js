@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV != "production"){
+    require("dotenv").config();
+}
+
 const express = require("express");
 const mongoose = require("mongoose");
 const MONGO_URL = "mongodb://127.0.0.1:27017/igloo";
@@ -46,10 +50,6 @@ const sessionOptions = {
         httpOnly: true,
     }
 };
-
-app.get("/",(req,res)=>{
-    res.send("Hi! I am root");
-})
 
 app.use(session(sessionOptions));
 app.use(flash());

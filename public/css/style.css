@@ -109,3 +109,21 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+
+.original-image{
+    height: 300px;
+}
+
+/* map */
+#map{
+    height: 400px;
+    width: 100vh;
+}
+
+.btn-search{
+    color: #fff !important;
+    background-color: rgb(152, 230, 230) !important;
+    border-color: rgb(152, 230, 230) !important;
+    border-radius: 25px !important;
+    padding: 0 1rem 0 1rem !important;
+}
