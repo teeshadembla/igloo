@@ -1,6 +1,6 @@
 {
-  "engines":{
-      "node":"v20.13.1"
+  "engines": {
+    "node": "v20.13.1"
   },
   "name": "flashpacker",
   "version": "1.0.0",
