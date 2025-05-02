@@ -1,0 +1,2 @@
+FLASHPACKER
+We're building a platform that simplifies short-term stays by connecting travelers with unique, verified accommodations offered by local hosts. Our goal is to create a trusted space where users can discover, book, and manage stays that fit their lifestyle — whether it's a weekend getaway, a remote work retreat, or a city adventure. By focusing on user experience, transparency, and community, we're aiming to reimagine the way people find places to stay, while also empowering hosts to monetize their spaces effortlessly.
