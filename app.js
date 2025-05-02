@@ -111,7 +111,7 @@ app.use((err,req,res,next)=>{
 })
 
 app.get('/', (req, res) => {
-    res.render('listings/index');  // This will render the 'index.ejs' file in the 'views' folder
+    res.render('index');  // This will render the 'index.ejs' file in the 'views' folder
 });
 
 app.listen(8080,()=>{
