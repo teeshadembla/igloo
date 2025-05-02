@@ -110,6 +110,10 @@ app.use((err,req,res,next)=>{
     /* res.status(statusCode).send(message); */
 })
 
+app.get('/', (req, res) => {
+    res.render('listings/index');  // This will render the 'index.ejs' file in the 'views' folder
+});
+
 app.listen(8080,()=>{
     console.log("server is listening on port 8080");
 })
