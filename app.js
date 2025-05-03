@@ -114,6 +114,6 @@ app.get('/', (req, res) => {
     res.render('index');  // This will render the 'index.ejs' file in the 'views' folder
 });
 
-app.listen(8080,()=>{
-    console.log("server is listening on port 8080");
+app.listen(process.env.PORT || 3000,()=>{
+    console.log(`server is listening on port ${process.env.PORT}`);
 })
